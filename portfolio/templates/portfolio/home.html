@@ -1,0 +1,270 @@
+{% load static%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hi, I'm Nonso, a Django developer skilled in building responsive web apps using Django, Vue.js, REST API, and Tailwind CSS. I love crafting seamless, user-friendly experiences."
+    />
+    <meta
+      name="keywords"
+      content="website, nonso, Osadebe, Nonso Osadebe, Django, ecommerce, web developer, django developer"
+    />
+    <link rel="shortcut icon" type="image" href="/media/Nonso-Osadebe.png" />
+
+    <title>Nonso's Portfolio</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/mediaqueries.css" />
+  </head>
+
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Nonso Osadebe</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav id="hamburger-nav">
+      <div class="logo">Nonso Osadebe</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+
+    <section id="profile">
+      <div class="section-pic-container">
+        <img src="media/Nonso-Osadebe.png" alt="Osadebe Nonso" />
+      </div>
+      <div class="section_text">
+        <p class="section_text_p1">Hello, I'm</p>
+        <h1 class="title">Osadebe Nonso</h1>
+        <p class="section_text_p2">Web Developer</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('media/Nonso-Osadebe.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='#contact'">
+            Contact
+          </button>
+        </div>
+        <div class="socials_container">
+          <img
+            src="media/linkedin.png"
+            class="icon"
+            alt="My Linkedin"
+            onclick="location.href='https://www.linkedin.com/in/nonso-osadebe-a58a63263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'"
+          />
+
+          <img
+            src="media/github.png"
+            class="icon"
+            alt="My Github"
+            onclick="location.href='https://github.com/nonzoo'"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <p class="section_text_p1">Get To Know More</p>
+      <h1 class="title about">About me</h1>
+      <div class="section-container">
+        <div class="about-detail-container">
+          <div class="about-container">
+            <div class="detail-container">
+              <img
+                src="media/experience.png"
+                alt="experiences"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>2 years <br />Frontend Development<br />Backend Development</p>
+            </div>
+            <div class="detail-container">
+              <img src="./media/education.png" alt="education" class="icon" />
+              <h3>Education</h3>
+              <p>B.Sc. Computer Science</p>
+            </div>
+          </div>
+          <div class="text_container">
+            <p>
+              Hello, I am Nonso, I am a Django developer crazy about building
+              dynamic and responsive web applications. I'm work with Django,
+              Vue.js, Django REST framework and Tailwind CSS for building simple
+              and captivating user experience. A willing to craft applications
+              that have functional as well as great finesse. I'll bring your
+              ideas to life!
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./media/arrow.png"
+        alt="next"
+        class="icon arrow"
+        onclick="location.href='#experience'"
+      />
+    </section>
+
+    <section id="experience">
+      <p class="section_text_p1">Explore my</p>
+      <h1 class="title">Experience</h1>
+      <div class="experience-detail-container">
+        <div class="about-container">
+          <div class="detail-container">
+            <h2 class="experience-sub-title">Frontend Developement</h2>
+            
+            <div class="article-container">
+              {% for frontend in frontends %}
+              <article>
+                <img src="./media/checkmark.png" alt="" class="icon" />
+                <div>
+                  <h3>{{ frontend.name }}</h3>
+                  <p>{{frontend.level}}</p>
+                </div>
+              </article>
+              {% endfor %}
+            </div>
+            
+          </div>
+
+          <div class="detail-container">
+            <h2 class="experience-sub-title">Backend Developement</h2>
+            <div class="article-container">
+              {% for backend in backends %}
+              <article>
+                <img src="./media/checkmark.png" alt="" class="icon" />
+                <div>
+                  <h3>{{backend.name}}</h3>
+                  <p>{{backend.level}}</p>
+                </div>
+              </article>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./media/arrow.png"
+        alt="next"
+        class="icon arrow"
+        onclick="location.href='#projects'"
+      />
+    </section>
+
+    <section id="projects">
+      <p class="section_text_p1">Browse My</p>
+      <h2 class="title">Projects</h2>
+
+      <div class="experience-detail-container">
+        <div class="about-container">
+          {% for project in projects %}
+          <div class="detail-container color-container">
+            <div class="article-container">
+              <img
+                src="{{project.image.url}}"
+                alt="project-1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">{{ project.name}}</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <img
+        src="/media/arrow.png"
+        alt="next"
+        class="icon arrow"
+        onclick="location.href='#contact'"
+      />
+    </section>
+
+    <section id="contact">
+      <p class="section_text_p1">Get in Touch</p>
+      <h2 class="title">Contact me</h2>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./media/email.png"
+            alt="mail"
+            class="icon email-icon contact-icon"
+          />
+          <p>
+            <a href="mailto:nonsoosadebe202@gmail.com"
+              >nonsoosadebe202@gmail.com</a
+            >
+          </p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./media/linkedin.png"
+            alt="linkedin"
+            class="icon contact-icon"
+          />
+          <p>
+            <a
+              href="https://www.linkedin.com/in/nonso-osadebe-a58a63263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+              >Nonso Osadebe</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script src="static/js/scripts.js"></script>
+  </body>
+
+  <footer>
+    <nav>
+      <div class="nav-links-container">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p>Copyright &#169; 2024 Nonso Osadebe. All Rights Reserved</p>
+  </footer>
+</html>
+{% endblock content %}
