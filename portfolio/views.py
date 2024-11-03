@@ -7,8 +7,6 @@ def homeview(request):
     frontends = Frontend.objects.all()
     backends= Backend.objects.all()
 
-    
-    print(frontends)
     return render (request, 'portfolio/home.html',  {
         'projects':projects,
         'frontends':frontends,
